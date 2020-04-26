@@ -1,0 +1,18 @@
+.person-details {
+    display: flex;
+    background-color: #303030;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+.person-details__picture {
+    width: 30%;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-right: 40px;
+}
+
+.person-details__description ul li {
+    font-size: 18px;
+}

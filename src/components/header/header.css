@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 16px;
+}
+
+.header__title {
+    font-weight: bold;
+}
+
+.header__nav-item {
+    border-radius: 4px;
+}
+
+.header__nav-item:hover {
+    background-color: #383838;
+}
+
+.header__nav-link {
+    font-size: 18px;
+    font-weight: bold;
+}
