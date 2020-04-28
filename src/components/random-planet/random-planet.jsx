@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SwapiService from '../../services/swapi-service'
+/* import Spinner from '../spinner' */
 import './random-planet.css'
 
 export default class RandomPlanet extends Component {
@@ -7,11 +8,7 @@ export default class RandomPlanet extends Component {
     swapiService = new SwapiService()
 
     state = {
-        id: null,
-        name: null,
-        population: null,
-        rotationPeriod: null,
-        diameter: null,
+        planet: {}
     }
 
     constructor() {
@@ -19,24 +16,30 @@ export default class RandomPlanet extends Component {
         this.updatePlanet()
     }
 
+    onPlanetLoaded = (planet) => {
+        this.setState({ planet })
+    }
+
     updatePlanet() {
-        const id = Math.floor(Math.random()*25 + 2)
+        const id = Math.floor(Math.random()*25) + 2
         this.swapiService
             .getPlanet(id)
-            .then((planet) => {
-                this.setState({
-                    id,
-                    name: planet.name,
-                    population: planet.population,
-                    rotationPeriod: planet.rotation_period,
-                    diameter: planet.diameter
-                })
-            })
+            .then( this.onPlanetLoaded )
     }
 
     render() {
 
-        const { id, name, population, rotationPeriod, diameter } = this.state
+        // const defaultImageUrl = 'https://loremflickr.com/320/240/dog'
+        const { planet: {id, name, population, rotationPeriod, diameter} } = this.state
+
+        // console.log(id)
+
+        // const planetImageUrl = async function() {
+        //     let response = await fetch(`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`)
+        //     console.log(response.status)
+        // }
+
+        // planetImageUrl().catch(err => console.log(err))
 
         return (
             <div className="random-planet">
@@ -46,11 +49,12 @@ export default class RandomPlanet extends Component {
                 <div className="random-planet__description">
                     <h3 className="random-planet__subtitle">{name}</h3>
                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item">{population}</li>
-                        <li className="list-group-item">{rotationPeriod}</li>
-                        <li className="list-group-item">{diameter}</li>
+                        <li className="list-group-item">Population: {population}</li>
+                        <li className="list-group-item">Rotation Period: {rotationPeriod}</li>
+                        <li className="list-group-item">Diameter: {diameter}</li>
                     </ul>
                 </div>
+                {/* <Spinner /> */}
             </div>
         )
     }
