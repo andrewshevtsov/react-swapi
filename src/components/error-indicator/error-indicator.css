@@ -1,0 +1,25 @@
+.error-indicator {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.error-indicator__whoops-title {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #f8b26a;
+}
+
+.error-indicator__text {
+    font-size: 18px;
+    color: #f8b26a;
+}
+
+.error-indicator__description {
+    font-size: 14px;
+    color: #656565;
+}
+
+.error-indicator__icon {
+    font-size: 10px;
+}
