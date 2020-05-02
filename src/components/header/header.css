@@ -21,3 +21,7 @@
     font-size: 18px;
     font-weight: bold;
 }
+
+.header__nav-btn {
+    align-self: center;
+}

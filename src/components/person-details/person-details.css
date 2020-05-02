@@ -1,4 +1,5 @@
 .person-details {
+    position: relative;
     display: flex;
     background-color: #303030;
     border-radius: 8px;
@@ -7,12 +8,30 @@
 }
 
 .person-details__picture {
-    width: 30%;
+    width: 50%;
+    height: 100%;
     background-color: #fff;
     border-radius: 8px;
     margin-right: 40px;
 }
 
+.person-details__picture img {
+    border-radius: 8px;
+}
+
 .person-details__description ul li {
     font-size: 18px;
+}
+
+.person-text {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #F39C12;
+}
+
+.loadingio-spinner-double-ring-3z3oyd2w5z {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
