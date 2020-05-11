@@ -2,7 +2,7 @@
 import React from "react"
 import './header.css'
 
-const Header = () => {
+const Header = ({onServiceChange}) => {
 
     return (
         <div className="header">
@@ -18,6 +18,10 @@ const Header = () => {
                     <a href="#" className="header__nav-link nav-link">Starships</a>
                 </li>
             </ul>
+            <button className="btn btn-primary btn-md align-self-center" 
+                    onClick={onServiceChange}>
+                Change Service
+            </button>
         </div>
     )
 }

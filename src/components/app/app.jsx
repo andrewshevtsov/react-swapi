@@ -1,39 +1,72 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 
 import Header from '../header'
 import RandomPlanet from '../random-planet'
-import ItemList from '../item-list'
-import PersonDetails from '../person-details'
-import TogglePlanet from '../toggle-planet'
 
-export default function() {
+import { 
+    PeoplePage,
+    PlanetsPage,
+    StarshipsPage } from '../pages'
 
-    let [planetIsVisible, setplanetIsVisible] = useState(true)
-    let [selected, setSelected] = useState(4)
+import ErrorIndicator from '../error-indicator'
+import ErrorBoundry from '../error-boundry'
 
-    const onTogglePlanetView = () => {
-        setplanetIsVisible(!planetIsVisible)
+import DummySwapiService from '../../services/dummy-swapi-service'
+import SwapiService from '../../services/swapi-service'
+import { SwapiServiceProvider } from '../swapi-service-context'
+
+import './app.css'
+
+export default class App extends Component {
+
+    state = {
+        hasError: false,
+        swapiService: new SwapiService()
     }
 
-    const onPersonSelected = (id) => {
-        setSelected(selected = id)
+    onServiceChange = () => {
+        this.setState(({ swapiService }) => {
+            const Service = swapiService instanceof SwapiService ?
+                                DummySwapiService : SwapiService;
+            return {
+                swapiService: new Service()
+            }
+        })
     }
 
-    const randomPlanetView = planetIsVisible ? <RandomPlanet /> : null
+    componentDidCatch() {
+        console.log('componentDidCatch')
+        this.setState({
+            hasError: true
+        })
+    }
 
-    return (
-        <div className="container">
-            <Header />
-            <TogglePlanet onTogglePlanetView={onTogglePlanetView}/>
-            { randomPlanetView }
-            <div className="row mb2">
-                <div className="col-md-4">
-                    <ItemList onItemSelected={onPersonSelected}/>
-                </div>
-                <div className="col-md-8">
-                    <PersonDetails personId={selected}/>
-                </div>
-            </div>
-        </div>
-    )
+    render() {
+
+        const { hasError } = this.state
+
+        if (hasError) {
+            return <ErrorIndicator />
+        }
+
+        return (
+            <ErrorBoundry>
+                <SwapiServiceProvider value={this.state.swapiService}>
+                    <div className="container">
+
+                        <Header onServiceChange={this.onServiceChange} />
+
+                        <RandomPlanet />
+
+                        <PeoplePage />
+
+                        <PlanetsPage />
+
+                        <StarshipsPage />
+
+                    </div>
+                </SwapiServiceProvider>
+            </ErrorBoundry>
+        )
+    }
 }
