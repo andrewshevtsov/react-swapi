@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
 import SwapiService from '../../services/swapi-service'
 import Spinner from '../spinner'
 
@@ -6,6 +8,14 @@ import ErrorIndicator from '../error-indicator'
 import './random-planet.css'
 
 export default class RandomPlanet extends Component {
+
+    static defaultProps = {
+        updateInterval: 10000
+    }
+
+    static propTypes = {
+        updateInterval: PropTypes.number
+    }
 
     swapiService = new SwapiService()
 
@@ -17,8 +27,9 @@ export default class RandomPlanet extends Component {
     }
 
     componentDidMount() {
+        const { updateInterval } = this.props
         this.updatePlanet()
-        this.interval = setInterval(this.updatePlanet, 8000)
+        this.interval = setInterval(this.updatePlanet, updateInterval)
     }
 
     componentWillUnmount() {
@@ -26,6 +37,7 @@ export default class RandomPlanet extends Component {
     }
 
     onPlanetLoaded = (planet) => {
+
         const id = planet.id
 
         fetch(`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`)
@@ -70,7 +82,7 @@ export default class RandomPlanet extends Component {
         const hasData = !(loading || error)
         const errorMsg = error ? <ErrorIndicator /> : null
         const spinner = loading ? <Spinner /> : null
-        const randomPlanetContent = hasData ? <PlanetView planet={planet} imageUrl={imageUrl}/> : null
+        const randomPlanetContent = hasData ? <PlanetView planet={planet} imageUrl={imageUrl} /> : null
 
         return (
             <div className="random-planet">

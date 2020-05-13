@@ -81,15 +81,15 @@ export default class DummySwapiService {
         return this._starships[0]
     }
 
-    getPersonImage = ({id}) => {
+    getPersonImage = () => {
         return `https://www.fillmurray.com/640/360`
     }
 
-    getStarshipImage = ({id}) => {
+    getStarshipImage = () => {
         return `https://www.fillmurray.com/640/360`
     }
 
-    getPlanetImage = ({id}) => {
+    getPlanetImage = () => {
         return `https://www.fillmurray.com/640/360`
     }
 }
