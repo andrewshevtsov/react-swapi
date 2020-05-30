@@ -1,8 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This is a training project from Yuri Bura (udemy.com),
-link to the course: https://www.udemy.com/course/pro-react-redux/
-link to SWAPI: https://swapi.dev/
+This is a training project from Yuri Bura (udemy.com),<br />
+link to the course: https://www.udemy.com/course/pro-react-redux/<br />
+link to SWAPI: https://swapi.dev/<br />
 link to Star Wars Visual Guide: https://starwars-visualguide.com/
 
 The application introduces you to the Star Wars universe and its persons,
