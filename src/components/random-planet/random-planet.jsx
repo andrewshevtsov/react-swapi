@@ -53,7 +53,7 @@ export default class RandomPlanet extends Component {
                 }
             })
 
-        this.setState({ 
+        this.setState({
             planet,
             loading: false
         })
@@ -85,11 +85,11 @@ export default class RandomPlanet extends Component {
         const randomPlanetContent = hasData ? <PlanetView planet={planet} imageUrl={imageUrl} /> : null
 
         return (
-            <div className="random-planet">
+            <React.Fragment>
                 {errorMsg}
                 {spinner}
                 {randomPlanetContent}
-            </div>
+            </React.Fragment>
         )
     }
 }
@@ -99,7 +99,7 @@ const PlanetView = ({ planet, imageUrl }) => {
     const { name, population, rotationPeriod, diameter } = planet
 
     return (
-        <React.Fragment>
+        <div className="random-planet">
             <div className="random-planet__picture">
                 <img src={imageUrl} alt="Planet"/>
             </div>
@@ -111,6 +111,6 @@ const PlanetView = ({ planet, imageUrl }) => {
                     <li className="list-group-item">Diameter: {diameter}</li>
                 </ul>
             </div>
-        </React.Fragment>
+        </div>
     )
 }

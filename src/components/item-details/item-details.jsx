@@ -36,7 +36,7 @@ export default class ItemDetails extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.itemId !== prevProps.itemId || 
+        if (this.props.itemId !== prevProps.itemId ||
             this.props.fetchData !== prevProps.fetchData ||
             this.props.getImageUrl !== prevProps.getImageUrl ) {
             this.updateItem()
@@ -72,7 +72,7 @@ export default class ItemDetails extends Component {
     render() {
 
         if (!this.state.item) {
-            return <h4>Select a item in item list</h4>
+            return <h4 className="mt-4">Select a item in item list</h4>
         }
 
         const { item, loading, error, image } = this.state
