@@ -1,5 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This is a training project from Yuri Bura (udemy.com),
+link to the course: https://www.udemy.com/course/pro-react-redux/
+link to SWAPI: https://swapi.dev/
+link to Star Wars Visual Guide: https://starwars-visualguide.com/
+
+The application introduces you to the Star Wars universe and its persons,
+in addition, for example, the functionality of throwing errors, switching to test api,
+a hidden page is available after clicking on the login button on the login page. Also,
+if the user is not authorized, he is redirected to the login page.
+
+“When gone am I, the last of the Jedi will you be. The Force runs strong in your family. Pass on what you have learned.” — Yoda.
+
 ## Available Scripts
 
 In the project directory, you can run:
