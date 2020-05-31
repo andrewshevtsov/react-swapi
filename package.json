@@ -3,6 +3,10 @@
   "homepage": "https://andrewshevtsov.github.io/react-swapi",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+      "node": "12.8.0",
+      "npm": "6.10.2"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
