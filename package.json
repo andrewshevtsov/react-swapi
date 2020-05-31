@@ -1,6 +1,6 @@
 {
   "name": "react-swapi",
-  "homepage": "https://andrewshevtsov.github.io/stardb-app",
+  "homepage": "https://andrewshevtsov.github.io/react-swapi",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
