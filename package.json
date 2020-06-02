@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-      "node": "12.8.0",
-      "npm": "6.10.2"
+    "node": "12.8.0",
+    "npm": "6.10.2"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -20,7 +20,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
+    "path": "^0.12.7"
   }
 }
